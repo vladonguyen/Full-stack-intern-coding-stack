@@ -5,7 +5,7 @@ export default function Navigation() {
         <>
             <ul>
                 <li>
-                    <NavLink to="/notes">All notes</NavLink></li>
+                    <NavLink to="/">Home</NavLink></li>
                 <li>  
                     <NavLink to="/create">Create new note</NavLink></li>
             </ul>
