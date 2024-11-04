@@ -1,0 +1,9 @@
+header {
+    width: 100%;
+    background: #2b2e43;
+    height: auto;
+    max-height: 80px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
