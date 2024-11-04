@@ -1,21 +1,17 @@
-export default function Allnotes(){
+export default function Allnotes({ notes }) {
+    console.log(notes);
 
-    return(
+    return (
         <>
-          <div className="noteItem">
-                    <h2>Title</h2>
-                    <p>Description</p>
+            {notes.map((note) => (
+                <div className="noteItem" key={note.id}>
+                    <h2>{note.title}</h2>
+                    <p>{note.description}</p>
                 </div>
+            ))}
 
-                <div className="noteItem">
-                    <h2>Title</h2>
-                    <p>Description</p>
-                </div>
 
-                <div className="noteItem">
-                    <h2>Title</h2>
-                    <p>Description</p>
-                </div>
+
         </>
 
     )
