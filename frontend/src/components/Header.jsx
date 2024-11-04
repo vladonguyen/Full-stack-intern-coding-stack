@@ -6,8 +6,8 @@ export default function Header() {
     return (
         <header>
             <div className="logo"></div>
-            
-<Navigation />
+
+            <Navigation />
         </header>
     )
 }

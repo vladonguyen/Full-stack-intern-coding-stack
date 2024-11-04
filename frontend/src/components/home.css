@@ -1,0 +1,12 @@
+div.allnotes {
+    display: flex;
+    width: 100%;
+}
+
+div.noteItem {
+    width: 100%;
+    border-radius: 1.1rem;
+    border: 0.1rem solid #73AD21;
+    padding: 1rem;
+    margin: 1rem;
+}
