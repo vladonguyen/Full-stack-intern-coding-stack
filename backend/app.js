@@ -12,7 +12,16 @@ app.use((req, res, next) => {
   next();
 });
 
-let notes = [];
+let notes = [
+  {"title": "example title 1",
+    "description": "example description",
+    "id": "dadsaffx1123"
+  },
+  {"title": "example title 2",
+    "description": "example description",
+    "id": "dadsaffx11dsa23"
+  }
+];
 
 // NEW NOTE to /api/notes
 app.post("/api/notes", (req, res, next) => {
