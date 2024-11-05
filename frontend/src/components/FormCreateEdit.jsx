@@ -2,22 +2,22 @@ import { redirect, json } from "react-router-dom"
 
 import { Form } from "react-router-dom"
 
-export default function FormCreateEdit() {
+export default function FormCreateEdit({ title, description }) {
+
 
     return (
 
         <Form method="POST">
-            <input name="title" placeholder="Title" />
-            <input name="description" placeholder="Description" />
+            <input name="title" placeholder="Title" defaultValue={title ? title : ""} />
+            <input name="description" placeholder="Description" defaultValue={description ? description : ""} />
             <button>Submit</button>
 
         </Form>
     )
 }
 
-export async function action({ request }) {
-    const method = "POST";
-
+export async function action({ request, params }) {
+    const method = request.method;
 
     const data = await request.formData();
     const resData = {
@@ -26,6 +26,10 @@ export async function action({ request }) {
     };
 
     let url = "http://localhost:8080/api/notes";
+
+    if(method === "PATCH"){
+        url = url + params.id
+    }
 
 
     const response = await fetch(url, {

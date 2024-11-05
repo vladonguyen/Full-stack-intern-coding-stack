@@ -2,9 +2,10 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from './components/RootLayout';
 import Home, { loader as allNotesloader } from './components/Home';
-import { action } from './components/FormCreateEdit';
+import { action as formSubmit} from './components/FormCreateEdit';
 import Create from './components/Create';
 import NoteDetails, { loader as noteDetailsloader } from './components/NoteDetails';
+import Edit from './components/Edit';
 
 
 function App() {
@@ -20,13 +21,24 @@ function App() {
       {
         path: "/create",
         element: <Create />,
-        action: action
+        action: formSubmit
       },
       {
         path: ":id",
-        element: <NoteDetails />,
-        loader: noteDetailsloader
-      }
+        children: [
+          {index: true,
+            element: <NoteDetails />,
+            loader: noteDetailsloader
+          },
+
+          {
+            path:"edit",
+            element:<Edit />,
+            loader: noteDetailsloader,
+            action: formSubmit
+          }
+        ]
+      },
     ]
     }
   ])
