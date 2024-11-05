@@ -4,7 +4,7 @@ import RootLayout from './components/RootLayout';
 import Home, { loader as allNotesloader } from './components/Home';
 import { action as formSubmit} from './components/FormCreateEdit';
 import Create from './components/Create';
-import NoteDetails, { loader as noteDetailsloader } from './components/NoteDetails';
+import NoteDetails, { action as deleteAction, loader as noteDetailsloader } from './components/NoteDetails';
 import Edit from './components/Edit';
 
 
@@ -28,7 +28,8 @@ function App() {
         children: [
           {index: true,
             element: <NoteDetails />,
-            loader: noteDetailsloader
+            loader: noteDetailsloader,
+            action: deleteAction
           },
 
           {

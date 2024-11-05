@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 
@@ -58,6 +58,20 @@ app.get("/api/notes/:id", (req, res, next) => {
     }
 
     res.json(note);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.delete("/api/notes/:id", (req, res, next) => {
+  try {
+     notes = notes.filter(note => note.id !== req.params.id);
+
+    if (!note) {
+      return res.status(404).json({ message: "Note not found." });
+    }
+    res.status(204).json("Deleted");
+
   } catch (error) {
     next(error);
   }
